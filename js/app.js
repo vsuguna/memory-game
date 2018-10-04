@@ -1,14 +1,84 @@
 /*
  * Create a list that holds all of your cards
  */
+ const cardClasses = ["fa-gem", "fa-gem", "fa-plane", "fa-plane", "fa-anchor", "fa-anchor",
+            "fa-bolt", "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf",
+            "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
 
-
+ var openedCards = [];
+ var shuffledCards = [];
+ var movesCounter = 0;
+ var timer = {
+   minutes :0,
+   seconds: 0,
+   timerId: -1
+ } ;
+ var time = document.querySelector('.time');
+ var deck = document.querySelector('.deck');
+ var restart = document.querySelector('.restart');
+ 
+ function formatTime(time){
+  if(time<10){
+    time="0"+time;
+  }
+  return time;
+}
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+function displayGameBoard(){
+  shuffledCards = shuffle(cardClasses);//store in array after shuffling
+  console.log(shuffledCards)
+  deck.innerHTML="";
+  for(let i = 0; i< cardClasses.length; i++){
+    let li = document.createElement('li');
+  	li.classList.add('card');
+    let id = "card"+i;
+    li.id = id;
+  	let icon = document.createElement('i');
+  	icon.classList.add('fas');
+    icon.classList.add(cardClasses[i]);
+    li.appendChild(icon);
+    deck.appendChild(li);
+  }
+startTimer();
+
+console.log(restart)
+}
+
+displayGameBoard();
+
+function restartGame(){
+  timer.seconds = 0;
+  timer.minutes = 0;
+  clearInterval(timer.timerId);
+  displayGameBoard();
+}
+
+function startTimer(){
+  timer.timerId = setInterval(incrementTime, 1000);
+}
+
+function incrementTime(){
+  timer.seconds += 1;
+  if (timer.seconds > 59){
+    timer.seconds = 0;
+    timer.minutes += 1;
+  }
+  // display time
+  // console.log(time);
+  $('.time').text(formatTime(timer.minutes)+ ":"+ formatTime(timer.seconds));
+}
+
+//click handler to Reset timer and restart game
+restart.addEventListener('click',function(){
+restartGame();
+
+});
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
