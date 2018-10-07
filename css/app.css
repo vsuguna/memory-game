@@ -38,8 +38,8 @@ h1 {
  */
 
 .deck {
-    width: 660px;
-    height: 680px;
+    /* width: 100vh; */
+    /* height: 100vh; */
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
@@ -52,8 +52,8 @@ h1 {
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
+    /* height: 100px;
+    width: 100px; */
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
@@ -77,14 +77,16 @@ h1 {
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
+    background: #55f92e;
     font-size: 33px;
+    animation: jiggle 1s ease-in;
 }
 
 .deck .card.mismatch {
     cursor: default;
-    background: red;
+    background: #fe3000;
     font-size: 33px;
+    animation: jiggle 1s ease-in;
 }
 
 /*
@@ -167,4 +169,86 @@ h1 {
     border-radius: 2px;
 }
 
+@keyframes jiggle {
+    45%, 65% {
+      transform: scale(1.0, 1.0)
+    }
+    50% {
+      transform: scale(1.1, 0.9)
+    }
+    55% {
+      transform: scale(0.9, 1.1) translate(0, -5px)
+    }
+    60% {
+      transform: scale(1.0, 1.0) translate(0, -5px)
+    }
+}
+
 /* media queries */
+
+@media screen and (max-width: 320px) {
+  .deck {
+    width: 290px;
+    height: 290px;
+    padding: 5px;
+  }
+
+  .score-panel {
+    width: 85%;
+    font-size: 0.8em;
+  }
+
+  .deck .card {
+    width:60px;
+    height:60px;
+    margin: 3px;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 519px) {
+  .deck {
+    width: 310px;
+    height: 310px;
+    padding: 10px;
+  }
+
+  .score-panel {
+    width: 80%;
+  }
+
+  .deck .card {
+    width:60px;
+    height:60px;
+    margin: 3px;
+  }
+}
+
+@media screen and (min-width: 520px) and (max-width: 767px) {
+  .deck {
+      width: 480px;
+      height: 480px;
+  }
+
+  .deck .card {
+      height: 90px;
+      width: 90px;
+  }
+}
+
+@media (min-width: 768px) {
+    .container {
+        font-size: 22px;
+    }
+
+    .deck {
+        width: 660px;
+        height: 680px;
+    }
+
+    .deck .card {
+        height: 125px;
+        width: 125px;
+
+    }
+
+}
