@@ -1,20 +1,25 @@
 # Memory Game Project
 
+Click [Live Application link](https://vsuguna.github.io/memory-game/) to play the Game.
+
+This is a web application which is built as a part of Udacity's [Front-End Nanodegree](https://in.udacity.com/course/front-end-web-developer-nanodegree--nd001) Program. This project primarily focuses on Responsive web page creation and manipulation of the DOM using Javascript.
+
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Installation](#installation)
+* [Instructions to Play](#Instructions)
+
+## Installation
+
+```
+$ git clone https://github.com/vsuguna/memory-game.git
+$ cd memory-game
+```
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+- Click a card to open it and see the symbol.
+- Click another card to find matching symbol.
+- Match the cards in less time and minimum number of moves.
+- Continue the game by memorizing the cards until you make 8 matching pairs.
+- Click refresh button to start over.

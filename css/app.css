@@ -156,14 +156,15 @@ h1 {
 }
 
 .playAgain {
-  width: 150px;
-  height: 40px;
-  outline: none;
-  border: none;
-  background: black;
-  color: white;
-  cursor: pointer;
-  letter-spacing: 2px;
-  border-radius: 2px;
-
+    width: 150px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+    letter-spacing: 2px;
+    border-radius: 2px;
 }
+
+/* media queries */
