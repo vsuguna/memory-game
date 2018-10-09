@@ -89,6 +89,11 @@ h1 {
     animation: jiggle 1s ease-in;
 }
 
+.deck .card.disabled {
+	pointer-events: none;
+	opacity: 0.9;
+}
+
 /*
  * Styles for the Score Panel
  */

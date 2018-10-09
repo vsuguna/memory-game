@@ -24,7 +24,9 @@
  let stars = document.querySelector('.stars');
  let modal = document.querySelector('.modal');
  let winMessage = document.querySelector('.winMessage');
+ let matchedCard = document.getElementsByClassName("match");
  let wonCards = [];
+ var cards;
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -53,7 +55,7 @@ function displayGameBoard(){
 displayGameBoard();
 
 function startGame(){
-var cards = document.querySelectorAll('.card');
+cards = document.querySelectorAll('.card');
 cards.forEach(function(card){
   card.addEventListener("click", handleClickEvent)
 });
@@ -149,6 +151,7 @@ function handleMismatch(card1,card2){
   // console.log("from compare:",temp);
   card1.classList.toggle("mismatch");
   card2.classList.toggle("mismatch");
+  disableCards();
   setTimeout(delay, 1000);
   openedCards = [];
   temp= null;
@@ -162,6 +165,23 @@ function delay(){
   card2.classList.remove("open");
   card1.classList.toggle("mismatch");
   card2.classList.toggle("mismatch");
+  enableCards();
+}
+
+function disableCards(){
+  // console.log("dis: ",cards)
+  Array.prototype.filter.call(cards, function(card){
+     card.classList.add('disabled');
+ });
+}
+
+function enableCards(){
+  Array.prototype.filter.call(cards, function(card){
+        card.classList.remove('disabled');
+        for(var i = 0; i < matchedCard.length; i++){
+            matchedCard[i].classList.add("disabled");
+        }
+    });
 }
 
 function restartGame(){

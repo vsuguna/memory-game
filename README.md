@@ -17,7 +17,7 @@ $ git clone https://github.com/vsuguna/memory-game.git
 $ cd memory-game
 ```
 
-##Rules
+## Rules
 
 - The player flips over a card to see the hidden symbol.
 - The timer starts as soon as the players selects the card first time.
