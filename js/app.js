@@ -104,7 +104,7 @@ function compareCards(openedCards){
 function incrementMoves(){
   movesCounter += 1;
   moves.textContent = movesCounter;
-  console.log("moves: ",movesCounter);
+  // console.log("moves: ",movesCounter);
 }
 
 // remove stars based on moves
@@ -125,8 +125,8 @@ function updateStars(){
 
 // show success for matched cards and remove listeners
 function handleMatch(card1,card2){
-  console.log("matched")
-  console.log("woncards:",wonCards);
+  // console.log("matched")
+  // console.log("woncards:",wonCards);
   // console.log(card1)
   // console.log(card2)
   card1.classList.add("match");
@@ -137,14 +137,14 @@ function handleMatch(card1,card2){
   temp= null;
   // final win condition
   if (wonCards.length == 8) {
-    console.log("congrats.");
+    // console.log("congrats.");
     displayWinMessage();
   }
 }
 
 // show fail for mismatch
 function handleMismatch(card1,card2){
-  console.log("not matched");
+  // console.log("not matched");
   // console.log("from compare",openedCards)
   // console.log("from compare:",temp);
   card1.classList.toggle("mismatch");
@@ -169,6 +169,7 @@ function restartGame(){
   <li><i class="fa fa-star"></i></li>
   <li><i class="fa fa-star"></i></li>`;
   wonCards = [];
+  openedCards = [];
   movesCounter = 0;
   isfirstClick = true;
   timer.seconds = 0;
@@ -200,7 +201,7 @@ function displayWinMessage(){
   moves.textContent = movesCounter;
   document.getElementById("starRating").innerHTML = starRating;
   clearInterval(timer.timerId);
-  console.log("final moves:",movesCounter);
+  // console.log("final moves:",movesCounter);
   document.getElementById("totalMoves").textContent = movesCounter;
 }
 
